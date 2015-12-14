@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Pocketropolis (Ludum Dare 34)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" href="styles/rocketboots.css" /> -->
+	<link rel="stylesheet" href="styles/metropolis.css" />
+	<!-- <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'> -->
+	<link href="fonts/silkscreen/silkscreen_normal.css" rel="stylesheet" type="text/css" charset="utf-8" />
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+<div class="gametoy">
+	<h1>Pocketropolis</h1>
+	<div class="screen">
+
+		<section class="gameInfo">
+			<div class="statsInfo"></div>
+			<div class="plotInfo">
+				<div class="basicPlotInfo"></div>
+				<div class="floorInfo"></div>
+			</div>
+		</section>
+
+		<section class="world">
+			<div class="planet"></div>
+		</section>
+		<section class="state menu actions">
+			<ul>
+				<li class="goto selectAction" data-state="game" data-action="stats">Stats</li>
+				<!-- <li class="goto selectAction" data-state="game" data-action="view">View</li>
+				-->
+				<li class="goto selectAction" data-state="game" data-action="left">Left</li>
+				<li class="goto selectAction" data-state="game" data-action="right">Right</li>
+				<li class="goto selectAction" data-state="game" data-action="build">Build</li>
+				<li class="goto selectAction" data-state="game" data-action="demolish">Demolish</li>
+
+				<!-- <li class="goto" data-state="configure">Configure</li> -->
+				<!-- <li class="goto" data-state="science">Science</li> -->
+				<!-- <li class="goto" data-state="game">Go Back</li> -->
+			</ul>
+		</section>
+		<section class="state menu stats">
+			<div class="statList">
+				<div>
+					<div class="label">Population: </div>
+					<div class="amounts">
+						<span class="population">xxx / xxx</span>
+
+					</div>
+				</div>
+				<div>
+					<div class="label">Raw Material:</div>
+					<div class="amounts">
+						<span class="material">xxx / xxx</span>
+					</div>
+				</div>				
+				<div>
+					<div class="label">Goods: </div>
+					<div class="amounts">
+						<span class="goods">xxx / xxx</span>
+					</div>
+				</div>
+				<!--
+				<div>
+					<div class="label">Research:</div> 
+					<div class="amounts">
+						<span class="research">xxx / xxx</span>
+					</div>
+				</div>
+				-->
+			</div>
+			<div class="rateList">
+				<!--
+				<div>
+					<div class="label">Population Growth Rate:</div>
+					<div class="amounts">
+						<span class="population">xxx</span> people / sec
+					</div>
+				</div>
+				<div>
+					<div class="label">Deforestation Rate:</div>
+					<div class="amounts">
+						<span class="trees">xxx</span> trees / sec
+					</div>
+				</div>
+				<div>
+					<div class="label">Material Extraction Rate:</div>
+					<div class="amounts">
+						<span class="material">xxx</span> raw materials / sec
+					</div>
+				</div>				
+				<div>
+					<div class="label">Production Rate:</div>
+					<div class="amounts">
+						<span class="goods">#</span> goods / sec 
+					</div>
+				</div>
+				-->
+				<!--
+				<div>
+					<div class="label">Research Rate:</div>
+					<div class="amounts">
+						<span class="research">#</span> RP/sec
+					</div>
+				</div>
+				-->
+			</div>
+			<ul>
+				<li class="goto" data-state="game">Close</li>
+			</ul>			
+		</section>
+		<section class="state menu science">
+			Science
+			<ul>
+				<li>Advance Max Building Height</li>
+				<!--
+				<li>Advance Max Upgrade Level for Residential</li>
+				<li>Advance Max Upgrade Level for Academic</li>
+				<li>Advance Max Upgrade Level for Industry</li>
+				<li>Advance Max Upgrade Level for Choppers</li>
+				-->
+				<li class="goto" data-state="game">Close</li>
+			</ul>			
+		</section>
+		<!--
+		<section class="state menu configure">
+			<ul>
+				<li>+ Cutting</li>
+				<li>+ Regrowing</li>
+				<li class="goto" data-state="actions">Go Back</li>
+			</ul>			
+		</section>
+		-->
+		<section class="state menu demolish">
+			<ul>
+				<li class="goto demolishAll" data-state="game">Demolish everything on this plot</li>
+				<li class="goto" data-state="game">Close</li>
+			</ul>
+		</section>
+		<section class="state menu build">
+			<ul>
+				<li class="buildFloor buildFloor-L" data-floortypekey="L">
+					Logging Site
+					<div class="cost"></div>
+				</li>
+				<li class="buildFloor buildFloor-R" data-floortypekey="R">
+					Residential
+					<div class="cost"></div>
+				</li>
+				<!--
+				<li class="buildFloor buildFloor-A" data-floortypekey="A">
+					Academic
+					<div class="cost"></div>
+				</li>
+				-->
+				<li class="buildFloor buildFloor-I" data-floortypekey="I">
+					Industry
+					<div class="cost"></div>
+				</li>
+				<li class="buildFloor buildFloor-T" data-floortypekey="T">
+					Tree Farm
+					<div class="cost"></div>
+				</li>				
+				<li class="goto" data-state="game">Close</li>
+			</ul>
+		</section>
+	</div>
+	<div class="controls">
+		<div class="B">
+			<div class="buttonTip"></div>
+			<div class="outerButton">
+				<button type="button" data-button="B">B</button>
+			</div>
+			
+		</div>
+		<div class="A">
+			<div class="buttonTip"></div>
+			<div class="outerButton">
+				<button type="button" data-button="A">A</button>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<footer>
+	<p>
+		Crafted in &lt;72 hours for the
+		<a href="">Ludum Dare 34 game jam</a>
+		<br />Themes: Growing &amp; 2 button controls
+	</p>
+	<p> 
+		@deathraygames
+		<br />
+		<a href="https://twitter.com/deathraygames">Twitter</a> 
+		| <a href="http://deathraygames.tumblr.com/">Tumblr</a> 
+		| <a href="http://ludumdare.com/compo/category/ld-26/?author_name=deathray">Ludum Dare</a>
+		| <a href="http://deathraygames.com/">DeathrayGames.com</a>
+	</p>
+	<p>
+		Copyright &copy; 2015
+	</p>
+	<p>
+		<a href="http://www.fontsquirrel.com/fonts/Silkscreen">Font by Jason Kottke</a>
+		<br />
+		<a href="http://deathraygames.tumblr.com/post/129821802197/great-color-palette-for-pixel-graphics">Color Pallete by DawnBringer</a>
+	</p>
+</footer>
+
+
+<div class="scripts">
+	<script src="scripts/rocketboots/core.js"></script>
+	<script src="scripts/game.js"></script>
+</div>
+
+
+</body>
+</html>
